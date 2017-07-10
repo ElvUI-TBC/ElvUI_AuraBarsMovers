@@ -4,7 +4,6 @@ local UF = E:GetModule('UnitFrames');
 local targetInsert = false
 local focusInsert = false
 local EP = LibStub("LibElvUIPlugin-1.0")
-local addon = ...
 
 P['abm'] = {
 	['player'] = false,
@@ -60,7 +59,7 @@ function ABM:UpdatePlayer(frame, db)
 	if not db.aurabar.enable then return end
 
 	local auraBars = frame.AuraBars
-	
+
 	if frame and auraBars and auraBars.spacing then
 		auraBars.spacing = (E.PixelMode and -1 or 1) + E.db.abm.playerSpace
 	end
@@ -108,7 +107,7 @@ function ABM:UpdatePlayer(frame, db)
 	frame:UpdateAllElements("AurabarsMovers_UpdateAllElements")
 end
 
-function ABM:UpdateTarget(frame, db)	
+function ABM:UpdateTarget(frame, db)
 	frame.db = db
 	local POWERBAR_OFFSET = db.power.offset
 	if not db.aurabar.enable then return end
@@ -162,7 +161,7 @@ function ABM:UpdateTarget(frame, db)
 	frame:UpdateAllElements("AurabarsMovers_UpdateAllElements")
 end
 
-function ABM:UpdateFocus(frame, db)	
+function ABM:UpdateFocus(frame, db)
 	frame.db = db
 	local POWERBAR_OFFSET = db.power.offset
 	if not db.aurabar.enable then return end
@@ -222,7 +221,7 @@ function ABM:ChangeTarget()
 end
 
 function ABM:Initialize()
-	EP:RegisterPlugin(addon,ABM.GetOptions)
+	EP:RegisterPlugin("ElvUI_AuraBarsMovers",ABM.GetOptions)
 	ABM:PlayerABmove()
 	ABM:TargetABmove()
 	ABM:FocusABmove()
@@ -234,4 +233,8 @@ function ABM:Initialize()
 	self:RegisterEvent("PLAYER_TARGET_CHANGED", "ChangeTarget")
 end
 
-E:RegisterModule(ABM:GetName())
+local function InitializeCallback()
+	ABM:Initialize()
+end
+
+E:RegisterModule(ABM:GetName(), InitializeCallback)
