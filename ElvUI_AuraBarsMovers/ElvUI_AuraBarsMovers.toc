@@ -1,20 +1,10 @@
 ## Interface: 20400
 ## Title: |cffA11313E|r|cffC4C4C4lvUI|r |cffA11313A|r|cffC4C4C4ura|r |cffA11313B|r|cffC4C4C4ars|r |cffA11313M|r|cffC4C4C4overs|r
 ## Author: Darth Predator
-## Version: 1.24
-## Notes: Moveble unit aura bars for |cff1784d1ElvUI|r.
-## Notes-ruRU: Возможноть перемещения полос аур в |cff1784d1ElvUI|r.
-## eMail: darthpred@gmail.com
-## URL:
+## Version: 1.29
 ## RequiredDeps: ElvUI
-## OptionalDeps: ElvUI_SLE
 ## DefaultState: Enabled
 
-LibElvUIPlugin-1.0\locales\load_locales.xml
-LibElvUIPlugin-1.0\LibElvUIPlugin-1.0.lua
+Locales.lua
 core.lua
 options.lua
-
-
-## X-Tukui-ProjectID: 76
-## X-Tukui-ProjectFolders: ElvUI_AuraBarsMovers
