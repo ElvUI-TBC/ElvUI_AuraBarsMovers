@@ -7,8 +7,43 @@ local function ColorizeSettingName(settingName)
 end
 
 function ABM:GetOptions()
-	E.Options.args.auraBarMovers = {
-		order = 55,
+	if not E.Options.args.elvuiPlugins then
+		E.Options.args.elvuiPlugins = {
+			order = 50,
+			type = "group",
+			name = "|cff00b30bE|r|cffC4C4C4lvUI_|r|cff00b30bP|r|cffC4C4C4lugins|r",
+			args = {
+				header = {
+					order = 0,
+					type = "header",
+					name = "|cff00b30bE|r|cffC4C4C4lvUI_|r|cff00b30bP|r|cffC4C4C4lugins|r"
+				},
+				auraBarMoversShortcut = {
+					type = "execute",
+					name = ColorizeSettingName(L["Aura Bar Movers"]),
+					func = function()
+						if IsAddOnLoaded("ElvUI_Config") then
+							local ACD = LibStub("AceConfigDialog-3.0-ElvUI")
+							ACD:SelectGroup("ElvUI", "elvuiPlugins", "auraBarMovers")
+						end
+					end
+				}
+			}
+		}
+	elseif not E.Options.args.elvuiPlugins.args.auraBarMoversShortcut then
+		E.Options.args.elvuiPlugins.args.auraBarMoversShortcut = {
+			type = "execute",
+			name = ColorizeSettingName(L["Aura Bar Movers"]),
+			func = function()
+				if IsAddOnLoaded("ElvUI_Config") then
+					local ACD = LibStub("AceConfigDialog-3.0-ElvUI")
+					ACD:SelectGroup("ElvUI", "elvuiPlugins", "auraBarMovers")
+				end
+			end
+		}
+	end
+
+	E.Options.args.elvuiPlugins.args.auraBarMovers = {
 		type = "group",
 		name = ColorizeSettingName(L["Aura Bar Movers"]),
 		args = {
