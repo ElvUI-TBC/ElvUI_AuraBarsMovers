@@ -63,7 +63,7 @@ function ABM:GetOptions()
 						type = "toggle",
 						name = L["Detach From Frame"],
 						get = function(info) return E.db.abm.player end,
-						set = function(info, value) E.db.abm.player = value UF:CreateAndUpdateUF("player") end
+						set = function(info, value) E.db.abm.player = value UF:CreateAndUpdateUF("player") ABM:MoverToggle() end
 					},
 					width = {
 						order = 2,
@@ -94,7 +94,7 @@ function ABM:GetOptions()
 						type = "toggle",
 						name = L["Detach From Frame"],
 						get = function(info) return E.db.abm.target end,
-						set = function(info, value) E.db.abm.target = value UF:CreateAndUpdateUF("target") end
+						set = function(info, value) E.db.abm.target = value UF:CreateAndUpdateUF("target") ABM:MoverToggle() end
 					},
 					width = {
 						order = 2,
@@ -125,7 +125,7 @@ function ABM:GetOptions()
 						type = "toggle",
 						name = L["Detach From Frame"],
 						get = function(info) return E.db.abm.focus end,
-						set = function(info, value) E.db.abm.focus = value UF:CreateAndUpdateUF("focus") end
+						set = function(info, value) E.db.abm.focus = value UF:CreateAndUpdateUF("focus") ABM:MoverToggle() end
 					},
 					width = {
 						order = 2,
@@ -142,6 +142,37 @@ function ABM:GetOptions()
 						min = -10, max = 20, step = 1,
 						get = function(info) return E.db.abm.focusSpace end,
 						set = function(info, value) E.db.abm.focusSpace = value UF:CreateAndUpdateUF("focus") end
+					}
+				}
+			},
+			pet = {
+				order = 5,
+				type = "group",
+				name = L["Pet"],
+				guiInline = true,
+				args = {
+					detach = {
+						order = 1,
+						type = "toggle",
+						name = L["Detach From Frame"],
+						get = function(info) return E.db.abm.pet end,
+						set = function(info, value) E.db.abm.pet = value UF:CreateAndUpdateUF("pet") ABM:MoverToggle() end
+					},
+					width = {
+						order = 2,
+						type = "range",
+						name = L["Width"],
+						min = 50, max = 500, step = 1,
+						get = function(info) return E.db.abm.petw end,
+						set = function(info, value) E.db.abm.petw = value UF:CreateAndUpdateUF("pet") end
+					},
+					space = {
+						order = 3,
+						type = "range",
+						name = L["Vertical Spacing"],
+						min = -10, max = 20, step = 1,
+						get = function(info) return E.db.abm.petSpace end,
+						set = function(info, value) E.db.abm.petSpace = value UF:CreateAndUpdateUF("pet") end
 					}
 				}
 			}
