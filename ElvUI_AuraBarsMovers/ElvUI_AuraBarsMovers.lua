@@ -42,7 +42,7 @@ function ABM:TargetABmove()
 	auraBar:Point("BOTTOM", holder, "TOP", 0, 0)
 	auraBar.Holder = holder
 
-	E:CreateMover(auraBar.Holder, "ElvUF_TargetAuraMover", L["Target Aura Bars"], nil, nil, nil, "ALL,SOLO", "elvuiPlugins,auraBarMovers")
+	E:CreateMover(auraBar.Holder, "ElvUF_TargetAuraMover", L["Target Aura Bars"], nil, nil, nil, "ALL,SOLO", nil, "elvuiPlugins,auraBarMovers")
 	UF:CreateAndUpdateUF("target")
 end
 
@@ -54,7 +54,7 @@ function ABM:FocusABmove()
 	auraBar:Point("BOTTOM", holder, "TOP", 0, 0)
 	auraBar.Holder = holder
 
-	E:CreateMover(auraBar.Holder, "ElvUF_FocusAuraMover", L["Focus Aura Bars"], nil, nil, nil, "ALL,SOLO", "elvuiPlugins,auraBarMovers")
+	E:CreateMover(auraBar.Holder, "ElvUF_FocusAuraMover", L["Focus Aura Bars"], nil, nil, nil, "ALL,SOLO", nil, "elvuiPlugins,auraBarMovers")
 	UF:CreateAndUpdateUF("focus")
 end
 
@@ -66,7 +66,7 @@ function ABM:PetABmove()
 	auraBar:Point("BOTTOM", holder, "TOP", 0, 0)
 	auraBar.Holder = holder
 
-	E:CreateMover(auraBar.Holder, "ElvUF_PetAuraMover", L["Pet Aura Bars"], nil, nil, nil, "ALL,SOLO", "elvuiPlugins,auraBarMovers")
+	E:CreateMover(auraBar.Holder, "ElvUF_PetAuraMover", L["Pet Aura Bars"], nil, nil, nil, "ALL,SOLO", nil, "elvuiPlugins,auraBarMovers")
 	UF:CreateAndUpdateUF("pet")
 end
 
